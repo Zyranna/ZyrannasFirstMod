@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+    "item": "startermod:zyrannite_block"
+    }
+  ],
+  "result": {
+    "item": "startermod:zyrannite",
+    "count": 9
+  }
+}
