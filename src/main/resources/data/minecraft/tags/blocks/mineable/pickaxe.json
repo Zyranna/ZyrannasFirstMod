@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "startermod:zyrannite_ore",
+    "startermod:zyrannite_block",
+    "startermod:bloodstone_ore",
+    "startermod:bloodstone_block"
+  ]
+}

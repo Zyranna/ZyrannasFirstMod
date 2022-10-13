@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "startermod:zyrannite"
+    }
+  },
+  "result": {
+    "item": "startermod:zyrannite_block",
+    "count": 1
+  }
+}

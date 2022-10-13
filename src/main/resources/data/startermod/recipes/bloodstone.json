@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "startermod:bloodstone_block"
+    }
+  ],
+  "result": {
+    "item": "startermod:bloodstone",
+    "count": 9
+  }
+}
