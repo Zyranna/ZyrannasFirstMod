@@ -10,6 +10,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.zyranna.startermod.block.ModBlocks;
 import net.zyranna.startermod.starteritem.StarterItems;
+import net.zyranna.startermod.world.feature.ModConfiguredFeatures;
+import net.zyranna.startermod.world.feature.ModPlacedFeatures;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -27,6 +29,9 @@ public class starterMod
 
         ModBlocks.register(modEventBus);
         // register the list of Blocks from the ModBlocks file
+
+        ModConfiguredFeatures.register(modEventBus);
+        ModPlacedFeatures.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
