@@ -18,10 +18,10 @@ public class ModPlacedFeatures {
     public static final RegistryObject<PlacedFeature> BLOODSTONE_ORE_PLACED = PLACED_FEATURES.register("bloodstone_ore_placed",
             () -> new PlacedFeature(ModConfiguredFeatures.BLOODSTONE_ORE.getHolder().get(),
                     commonOrePlacement(40,
-                            HeightRangePlacement.triangle(VerticalAnchor.absolute(-60),VerticalAnchor.absolute(160)))));
+                            HeightRangePlacement.uniform(VerticalAnchor.bottom(),VerticalAnchor.top()))));
 
     public static final RegistryObject<PlacedFeature> ZYRANNITE_ORE_PLACED = PLACED_FEATURES.register("zyrannite_ore_placed",
-            () -> new PlacedFeature(ModConfiguredFeatures.ZYRANNITE_ORE.getHolder().get(), commonOrePlacement(40, HeightRangePlacement.uniform(VerticalAnchor.absolute(-80),VerticalAnchor.absolute(80)))));
+            () -> new PlacedFeature(ModConfiguredFeatures.ZYRANNITE_ORE.getHolder().get(), commonOrePlacement(40, HeightRangePlacement.uniform(VerticalAnchor.bottom(),VerticalAnchor.top()))));
 
 
 

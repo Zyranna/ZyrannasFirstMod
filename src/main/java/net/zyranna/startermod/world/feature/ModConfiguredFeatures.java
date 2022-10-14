@@ -24,24 +24,21 @@ public class ModConfiguredFeatures {
     public static final DeferredRegister<ConfiguredFeature<?,?>> CONFIGURED_FEATURES =
             DeferredRegister.create(Registry.CONFIGURED_FEATURE_REGISTRY, starterMod.MOD_ID);
 
-
-
-
-    public static final Supplier<List<OreConfiguration.TargetBlockState>> NETHER_BLOODSTONE_ORE = Suppliers.memoize(() -> List.of(
+    private static final Supplier<List<OreConfiguration.TargetBlockState>> NETHER_BLOODSTONE_ORE = Suppliers.memoize(() -> List.of(
          OreConfiguration.target(OreFeatures.NETHER_ORE_REPLACEABLES, ModBlocks.BOODSTONE_ORE.get().defaultBlockState())));
     // placement registry for nether ores
 
 
-    public static final Supplier<List<OreConfiguration.TargetBlockState>> END_ZYRANNITE_ORE = Suppliers.memoize(() -> List.of(
+    private static final Supplier<List<OreConfiguration.TargetBlockState>> END_ZYRANNITE_ORE = Suppliers.memoize(() -> List.of(
             OreConfiguration.target(new BlockMatchTest(Blocks.END_STONE), ModBlocks.ZYRANNITE_ORE.get().defaultBlockState())));
     //placement registry for End ores
 
 
 
     public static final RegistryObject<ConfiguredFeature<?,?>> BLOODSTONE_ORE= CONFIGURED_FEATURES.register("bloodstone_ore",
-() -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(END_ZYRANNITE_ORE.get(),8)));
+            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(END_ZYRANNITE_ORE.get(),8)));
     public static final RegistryObject<ConfiguredFeature<?,?>>ZYRANNITE_ORE = CONFIGURED_FEATURES.register("zyrannite_ore",
-() -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(NETHER_BLOODSTONE_ORE.get(), 8)));
+            () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(NETHER_BLOODSTONE_ORE.get(), 8)));
 
 
     public static void register(IEventBus eventBus){

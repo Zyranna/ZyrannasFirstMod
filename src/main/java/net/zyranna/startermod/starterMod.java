@@ -30,8 +30,8 @@ public class starterMod
         ModBlocks.register(modEventBus);
         // register the list of Blocks from the ModBlocks file
 
-        ModConfiguredFeatures.register(modEventBus);
-        ModPlacedFeatures.register(modEventBus);
+        ModConfiguredFeatures.CONFIGURED_FEATURES.register(modEventBus);
+        ModPlacedFeatures.PLACED_FEATURES.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
