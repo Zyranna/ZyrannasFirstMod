@@ -9,10 +9,12 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.zyranna.startermod.block.ModBlocks;
+import net.zyranna.startermod.entity.ModEntityTypes;
 import net.zyranna.startermod.starteritem.StarterItems;
 import net.zyranna.startermod.world.feature.ModConfiguredFeatures;
 import net.zyranna.startermod.world.feature.ModPlacedFeatures;
 import org.slf4j.Logger;
+import software.bernie.geckolib3.GeckoLib;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(starterMod.MOD_ID)
@@ -32,6 +34,10 @@ public class starterMod
 
         ModConfiguredFeatures.CONFIGURED_FEATURES.register(modEventBus);
         ModPlacedFeatures.PLACED_FEATURES.register(modEventBus);
+        ModEntityTypes.ENTITY_TYPES.register(modEventBus);
+
+
+        GeckoLib.initialize();
 
         modEventBus.addListener(this::commonSetup);
 
