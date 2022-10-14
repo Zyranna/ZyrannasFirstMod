@@ -21,9 +21,7 @@ public class ModPlacedFeatures {
                             HeightRangePlacement.triangle(VerticalAnchor.absolute(-60),VerticalAnchor.absolute(160)))));
 
     public static final RegistryObject<PlacedFeature> ZYRANNITE_ORE_PLACED = PLACED_FEATURES.register("zyrannite_ore_placed",
-            () -> new PlacedFeature(ModConfiguredFeatures.ZYRANNITE_ORE.getHolder().get(),
-                    commonOrePlacement(40,
-                            HeightRangePlacement.uniform(VerticalAnchor.absolute(-60),VerticalAnchor.absolute(160)))));
+            () -> new PlacedFeature(ModConfiguredFeatures.ZYRANNITE_ORE.getHolder().get(), commonOrePlacement(40, HeightRangePlacement.uniform(VerticalAnchor.absolute(-80),VerticalAnchor.absolute(80)))));
 
 
 
@@ -36,9 +34,6 @@ public class ModPlacedFeatures {
         return orePlacement(CountPlacement.of(p_195344_), p_195345_);
     }
 
-    private static List<PlacementModifier> rareOrePlacement(int p_195350_, PlacementModifier p_195351_) {
-        return orePlacement(RarityFilter.onAverageOnceEvery(p_195350_), p_195351_);
-    }
 
 
 
@@ -46,6 +41,7 @@ public class ModPlacedFeatures {
 
 
     public static void register(IEventBus eventBus){
+
         PLACED_FEATURES.register(eventBus);
     }
 
