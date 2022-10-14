@@ -6,8 +6,8 @@
     "targets": [
       {
         "target": {
-          "predicate_type": "minecraft:tag_match",
-          "tag": "minecraft:base_stone_nether"
+          "predicate_type": "minecraft:block_match",
+          "block": "minecraft:end_stone"
         },
         "state": {
           "Name": "startermod:zyrannite_ore"
