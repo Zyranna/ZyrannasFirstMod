@@ -1,6 +1,7 @@
 package net.zyranna.startermod;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -10,6 +11,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.zyranna.startermod.block.ModBlocks;
 import net.zyranna.startermod.entity.ModEntityTypes;
+import net.zyranna.startermod.entity.client.SharkPupRenderer;
 import net.zyranna.startermod.starteritem.StarterItems;
 import net.zyranna.startermod.world.feature.ModConfiguredFeatures;
 import net.zyranna.startermod.world.feature.ModPlacedFeatures;
@@ -54,6 +56,7 @@ public class starterMod
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+            EntityRenderers.register(ModEntityTypes.SHARKPUP.get(), SharkPupRenderer::new);
 
         }
     }

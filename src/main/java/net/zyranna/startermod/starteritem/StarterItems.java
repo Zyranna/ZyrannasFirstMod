@@ -1,10 +1,12 @@
 package net.zyranna.startermod.starteritem;
 
 import net.minecraft.world.item.*;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import net.zyranna.startermod.entity.ModEntityTypes;
 import net.zyranna.startermod.starteritem.custom.ModToolTiers;
 import net.zyranna.startermod.starterMod;
 import net.zyranna.startermod.starteritem.custom.PoweredZyrannite;
@@ -53,6 +55,13 @@ public class StarterItems {
             new ShovelItem(ModToolTiers.Bloodstone,1f,1f,props()));
     public static final RegistryObject<SwordItem> Bloodstone_Sword = Items.register("bloodstone_sword", () ->
             new SwordItem(ModToolTiers.Bloodstone,8,.5f,props()));
+
+
+
+
+
+    public static final RegistryObject<Item> SHARKPUP_EGG = Items.register("sharkpup_spawn_egg", () ->
+            new ForgeSpawnEggItem(ModEntityTypes.SHARKPUP, 0x051094,0x63C5da,props()));
 
 
 
