@@ -19,7 +19,7 @@ public class ModEntityTypes {
 
 
     public static final RegistryObject<EntityType<? extends SharkPuppy>> SHARKPUP =
-            ENTITY_TYPES.register("sharkpup", () -> EntityType.Builder.of(SharkPuppy::new, MobCategory.CREATURE).sized(.5f,.5f).build(new ResourceLocation(starterMod.MOD_ID, "sharkpup").toString()));
+            ENTITY_TYPES.register("sharkpup", () -> EntityType.Builder.of(SharkPuppy::new, MobCategory.WATER_CREATURE).sized(.5f,.5f).build(new ResourceLocation(starterMod.MOD_ID, "sharkpup").toString()));
 
 
 

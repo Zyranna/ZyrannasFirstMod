@@ -18,6 +18,6 @@ public class SharkPupModel extends AnimatedGeoModel<SharkPuppy> {
 
     @Override
     public ResourceLocation getAnimationResource(SharkPuppy animatable) {
-        return new ResourceLocation(starterMod.MOD_ID,"animations/model.animation.json");
+        return new ResourceLocation(starterMod.MOD_ID,"animations/sharkpup.animation.json");
     }
 }

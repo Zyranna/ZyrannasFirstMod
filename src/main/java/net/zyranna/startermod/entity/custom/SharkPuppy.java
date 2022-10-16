@@ -7,6 +7,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.NeutralMob;
 import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -17,8 +18,10 @@ import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Chicken;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -28,7 +31,12 @@ import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
-public class SharkPuppy extends Animal implements IAnimatable {
+import java.util.UUID;
+
+public class SharkPuppy extends TamableAnimal implements IAnimatable, NeutralMob {
+
+
+    private  AnimationFactory factory = new AnimationFactory(this);
 
 
     public SharkPuppy(final EntityType<? extends SharkPuppy> entityType, final Level level) {
@@ -43,7 +51,7 @@ public class SharkPuppy extends Animal implements IAnimatable {
                 .add(Attributes.MAX_HEALTH, 20.00)
                 .add(Attributes.ATTACK_DAMAGE,4.0f)
                 .add(Attributes.ATTACK_SPEED, 1.0f)
-                .add(Attributes.MOVEMENT_SPEED, .6f).build();
+                .add(Attributes.MOVEMENT_SPEED, 0.2f).build();
     }
 
     @Override
@@ -56,13 +64,23 @@ public class SharkPuppy extends Animal implements IAnimatable {
         this.targetSelector.addGoal(2,new NearestAttackableTargetGoal<>(this, Chicken.class,true));
     }
 
+    @Override
+    public boolean isInvulnerableTo(DamageSource source)
+    {
+        return source == DamageSource.DROWN || super.isInvulnerableTo(source);
+    }
+    public boolean canBeLeashed(Player p_149122_) {
+        return true;
+    }
+
+
     private <E extends IAnimatable>PlayState predicate(AnimationEvent<E> event){
         if(event.isMoving()){
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation_sharkpup_walk", true));
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.sharkpup.walk", true));
             return PlayState.CONTINUE;
         }
 
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation_sharkpup_idle",true));
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.sharkpup.idle",true));
         return  PlayState.CONTINUE;
     }
 
@@ -81,7 +99,8 @@ public class SharkPuppy extends Animal implements IAnimatable {
 
     @Override
     public AnimationFactory getFactory(){
-        return null;
+
+        return factory;
     }
 
 
@@ -104,5 +123,31 @@ public class SharkPuppy extends Animal implements IAnimatable {
     @Override
     public AgeableMob getBreedOffspring(ServerLevel p_146743_, AgeableMob p_146744_) {
         return null;
+    }
+
+    @Override
+    public int getRemainingPersistentAngerTime() {
+        return 0;
+    }
+
+    @Override
+    public void setRemainingPersistentAngerTime(int p_21673_) {
+
+    }
+
+    @Nullable
+    @Override
+    public UUID getPersistentAngerTarget() {
+        return null;
+    }
+
+    @Override
+    public void setPersistentAngerTarget(@Nullable UUID p_21672_) {
+
+    }
+
+    @Override
+    public void startPersistentAngerTimer() {
+
     }
 }
