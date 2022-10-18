@@ -13,6 +13,7 @@
   "item.startermod.zyrannite_axe": "Zyrannite Axe",
 
 
+
   "item.startermod.bloodstone_sword": "Bloodstone Sword",
   "item.startermod.bloodstone_shovel": "Bloodstone Shovel",
   "item.startermod.bloodstone_hoe": "ur mum on that time of the month",
@@ -28,6 +29,10 @@
   "block.startermod.bloodstone_block": "Block of Bloodstone",
   "block.startermod.bloodstone_ore": "Bloodstone Ore",
   "block.startermod.jumpy_block": "stupid test block",
+
+  "entity.startermod.sharkpup": "Shark Puppy",
+
+
 
   "itemGroup.startermodtab" : "Zyranna's Starter Mod"
 }
